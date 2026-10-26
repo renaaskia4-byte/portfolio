@@ -1,0 +1,1250 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Sistem Mikroprosesor</title>
+
+    <style>
+        /* =========================
+           PENGATURAN WARNA BIRU
+        ========================== */
+        :root {
+            --biru: #3979CC;
+            --biru-tua: #1E2D45;
+            --biru-muda: #EAF4FF;
+            --biru-soft: #F4F8FF;
+            --ungu: #7489D8;
+            --putih: #FFFFFF;
+            --abu: #66758B;
+            --border: #DCE8F7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--biru-soft);
+            color: var(--biru-tua);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* NAVIGASI */
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 3px 15px rgba(40, 80, 130, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--biru);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--biru);
+        }
+
+        /* BAGIAN BERANDA */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(
+                135deg,
+                #EAF4FF,
+                #DCEAFF,
+                #FFFFFF
+            );
+            padding: 75px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .label {
+            display: inline-block;
+            background: #D7E8FF;
+            color: #315C9B;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--biru);
+        }
+
+        .hero p {
+            color: var(--abu);
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--biru);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 5px 5px 5px 0;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #285DA6;
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            background: white;
+            color: var(--biru);
+            border: 1px solid var(--border);
+        }
+
+        .button-outline:hover {
+            color: white;
+        }
+
+        .hero-illustration {
+            background: linear-gradient(135deg, #B9D8FF, #DCDFFF);
+            border-radius: 35px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 105px;
+            box-shadow: 0 15px 35px rgba(57, 121, 204, 0.12);
+        }
+
+        /* BAGIAN UMUM */
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--abu);
+        }
+
+        .section-title span {
+            color: var(--biru);
+        }
+
+        /* BIODATA */
+        .biodata-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 8px 25px rgba(40, 80, 130, 0.05);
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-icon {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #B9D8FF, #DCDFFF);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+        }
+
+        .profile-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .profile-card p {
+            color: var(--abu);
+            font-size: 14px;
+        }
+
+        .biodata-list {
+            list-style: none;
+        }
+
+        .biodata-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #EEF3FA;
+            display: grid;
+            grid-template-columns: 135px 1fr;
+            gap: 10px;
+        }
+
+        .biodata-list li:last-child {
+            border-bottom: none;
+        }
+
+        .biodata-list strong {
+            color: var(--biru);
+        }
+
+        /* TUJUAN PRAKTIKUM */
+        .tujuan {
+            background: white;
+        }
+
+        .tujuan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .tujuan-card {
+            padding: 25px;
+            background: var(--biru-soft);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .tujuan-card .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .tujuan-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tujuan-card p {
+            color: var(--abu);
+            font-size: 14px;
+        }
+
+        /* HASIL PRAKTIK */
+        .praktik-list {
+            display: grid;
+            gap: 35px;
+        }
+
+        .week-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(40, 80, 130, 0.05);
+        }
+
+        .week-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .week-number {
+            min-width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: #E5EEFF;
+            color: #315C9B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .week-heading h3 {
+            font-size: 22px;
+        }
+
+        .week-heading p {
+            font-size: 13px;
+            color: var(--abu);
+        }
+
+        .description {
+            color: var(--abu);
+            margin-bottom: 18px;
+        }
+
+        .detail-praktik {
+            margin: 15px 0;
+            padding-left: 22px;
+        }
+
+        .detail-praktik li {
+            margin-bottom: 8px;
+        }
+
+        .hasil-box {
+            background: #EDF5FF;
+            border-left: 4px solid var(--biru);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .hasil-box strong {
+            color: #315C9B;
+        }
+
+        /* FOTO PRAKTIK */
+        .foto-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .foto-grid figure {
+            background: #EDF5FF;
+            padding: 10px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .foto-grid img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #DCEAFF;
+        }
+
+        .foto-grid figcaption {
+            padding: 12px 5px 5px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .foto-note {
+            color: var(--abu);
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        /* GALERI */
+        .gallery-section {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 17px;
+            box-shadow: 0 8px 20px rgba(40, 80, 130, 0.05);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #DCEAFF;
+        }
+
+        .gallery-card p {
+            text-align: center;
+            padding: 12px 5px 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* KESIMPULAN */
+        .conclusion {
+            background: linear-gradient(135deg, #EAF4FF, #F3F7FF);
+        }
+
+        .conclusion-card {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .conclusion-card p {
+            color: var(--abu);
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--biru-tua);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        footer span {
+            color: #A9D0FF;
+        }
+
+        /* RESPONSIVE UNTUK HP */
+        @media (max-width: 800px) {
+            nav {
+                padding: 18px 0;
+                flex-direction: column;
+            }
+
+            .menu {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            .hero-content,
+            .biodata-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-illustration {
+                min-height: 220px;
+                font-size: 75px;
+            }
+
+            .tujuan-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            section {
+                padding: 55px 0;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .week-card {
+                padding: 20px;
+            }
+
+            .week-heading h3 {
+                font-size: 18px;
+            }
+
+            .foto-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .foto-grid img {
+                height: 220px;
+            }
+
+            .biodata-list li {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+
+            .conclusion-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+	
+<html>
+<head>
+<title>TEKS BERJALAN.HTML</title>
+</head>
+<marquee>SELAMAT DATANG DI WEB PERTAMA RENA ASKIA</marquee>
+</html>
+</div>
+
+        <div class="container">
+            <nav>
+                <a href="#beranda" class="logo">Hasil</a>
+
+                <ul class="menu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#biodata">Biodata</a></li>
+                    <li><a href="#tujuan">Tujuan</a></li>
+                    <li><a href="#praktik">Hasil Praktik</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#kesimpulan">Kesimpulan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- BERANDA -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="hero-content">
+
+                <div>
+                    <span class="label">
+                        PORTOFOLIO PRAKTIKUM
+                    </span>
+
+                    <h1>
+                        Sistem <span>Mikroprosesor</span>
+                    </h1>
+
+                    <p>
+                        Selamat datang di website portofolio saya.
+                        Website ini berisi dokumentasi hasil praktik,
+                        penjelasan kegiatan, proses pengerjaan, serta
+                        pembelajaran yang saya peroleh selama mengikuti
+                        praktikum Sistem Mikroprosesor.
+                    </p>
+
+                    <a href="#praktik" class="button">
+                        Lihat Hasil Praktik
+                    </a>
+
+                    <a href="#biodata" class="button button-outline">
+                        Tentang Saya
+                    </a>
+                </div>
+
+                <div class="hero-illustration">
+                    💻 ⚙️
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BIODATA -->
+    <section id="biodata">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Biodata <span>Diri</span></h2>
+                <p>Informasi singkat mengenai pemilik portofolio.</p>
+            </div>
+
+            <div class="biodata-grid">
+
+                <div class="card profile-card">
+                    <div class="profile-icon">👩🏻‍💻</div>
+
+                    <h3>[Nama Lengkap]</h3>
+
+                    <p>Mahasiswa / Pelajar</p>
+                    <p>Sistem Mikroprosesor</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 15px;">
+                        Data Pribadi
+                    </h3>
+
+                    <ul class="biodata-list">
+                        <li>
+                            <strong>Nama</strong>
+                            <span>[Nama Lengkap]</span>
+                        </li>
+
+                        <li>
+                            <strong>NIM / NIS</strong>
+                            <span>[Nomor Induk]</span>
+                        </li>
+
+                        <li>
+                            <strong>Program Studi</strong>
+                            <span>[Nama Program Studi]</span>
+                        </li>
+
+                        <li>
+                            <strong>Kelas</strong>
+                            <span>[Kelas]</span>
+                        </li>
+
+                        <li>
+                            <strong>Mata Kuliah</strong>
+                            <span>Sistem Mikroprosesor</span>
+                        </li>
+
+                        <li>
+                            <strong>Dosen Pengampu</strong>
+                            <span>[Nama Dosen]</span>
+                        </li>
+
+                        <li>
+                            <strong>Institusi</strong>
+                            <span>[Nama Kampus / Sekolah]</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TUJUAN PRAKTIKUM -->
+    <section class="tujuan" id="tujuan">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Tujuan <span>Praktikum</span></h2>
+                <p>
+                    Hal-hal yang ingin dipahami melalui kegiatan praktik.
+                </p>
+            </div>
+
+            <div class="tujuan-grid">
+
+                <div class="tujuan-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Memahami Komponen</h3>
+                    <p>
+                        Mengenal fungsi komponen elektronika dan perangkat
+                        yang digunakan dalam rangkaian mikroprosesor.
+                    </p>
+                </div>
+
+                <div class="tujuan-card">
+                    <div class="icon">💻</div>
+                    <h3>Mempelajari Pemrograman</h3>
+                    <p>
+                        Memahami cara menulis, mengunggah, dan menguji
+                        program untuk mengendalikan perangkat elektronik.
+                    </p>
+                </div>
+
+                <div class="tujuan-card">
+                    <div class="icon">🔧</div>
+                    <h3>Menerapkan Teori</h3>
+                    <p>
+                        Menerapkan teori yang telah dipelajari melalui
+                        perakitan, pengujian, dan analisis hasil praktik.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HASIL PRAKTIK -->
+    <section id="praktik">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Hasil <span>Praktik</span></h2>
+                <p>
+                    Dokumentasi kegiatan, penjelasan, dan hasil setiap
+                    pertemuan praktikum.
+                </p>
+            </div>
+
+            <div class="praktik-list">
+
+                <!-- MINGGU 1 -->
+                <article class="week-card">
+                    <div class="week-heading">
+                        <div class="week-number">01</div>
+                        <div>
+                            <h3>[Judul Praktik Minggu 1]</h3>
+                            <p>Pertemuan pertama</p>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Pada pertemuan pertama, saya mempelajari
+                        [materi atau kegiatan praktik]. Kegiatan ini
+                        bertujuan untuk mengenal komponen, memahami
+                        fungsi alat, serta mengetahui prosedur kerja
+                        yang benar sebelum melakukan percobaan.
+                    </p>
+
+                    <h4>Alat dan bahan</h4>
+                    <ul class="detail-praktik">
+                        <li>[Nama alat atau komponen pertama]</li>
+                        <li>[Nama alat atau komponen kedua]</li>
+                        <li>[Nama alat atau komponen ketiga]</li>
+                    </ul>
+
+                    <h4>Langkah kerja</h4>
+                    <ol class="detail-praktik">
+                        <li>Menyiapkan alat dan bahan yang dibutuhkan.</li>
+                        <li>Merangkai atau menyiapkan perangkat sesuai petunjuk.</li>
+                        <li>Melakukan pengujian dan mencatat hasilnya.</li>
+                    </ol>
+
+                    <div class="hasil-box">
+                        <strong>Hasil dan pembahasan</strong>
+                        <p>
+                            [Jelaskan hasil praktik minggu pertama,
+                            apakah rangkaian bekerja dengan baik,
+                            apa yang diamati, dan apa yang dipelajari.]
+                        </p>
+                    </div>
+
+                    <h4>Dokumentasi praktik</h4>
+
+                    <div class="foto-grid">
+                        <figure>
+                            <img
+                                src="foto/minggu1-rangkaian.jpg"
+                                alt="Foto proses praktik minggu pertama"
+                                loading="lazy"
+                            >
+                            <figcaption>Proses pengerjaan praktik</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="foto/minggu1-hasil.jpg"
+                                alt="Foto hasil praktik minggu pertama"
+                                loading="lazy"
+                            >
+                            <figcaption>Hasil akhir praktik</figcaption>
+                        </figure>
+                    </div>
+
+                    <p class="foto-note">
+                        Ganti gambar dengan foto asli kegiatan praktikmu.
+                    </p>
+                </article>
+
+                <!-- MINGGU 2 -->
+                <article class="week-card">
+                    <div class="week-heading">
+                        <div class="week-number">02</div>
+                        <div>
+                            <h3>[Judul Praktik Minggu 2]</h3>
+                            <p>Pertemuan kedua</p>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Pada pertemuan kedua, saya melakukan praktik
+                        mengenai [materi praktik]. Saya mempelajari
+                        hubungan antar komponen dan cara kerja rangkaian
+                        berdasarkan instruksi yang diberikan.
+                    </p>
+
+                    <h4>Alat dan bahan</h4>
+                    <ul class="detail-praktik">
+                        <li>[Nama alat atau komponen]</li>
+                        <li>[Nama perangkat atau modul]</li>
+                        <li>[Kabel penghubung dan perlengkapan lain]</li>
+                    </ul>
+
+                    <h4>Langkah kerja</h4>
+                    <ol class="detail-praktik">
+                        <li>Memeriksa alat dan komponen.</li>
+                        <li>Membuat rangkaian sesuai diagram praktik.</li>
+                        <li>Menguji rangkaian dan mengamati perubahan yang terjadi.</li>
+                    </ol>
+
+                    <div class="hasil-box">
+                        <strong>Hasil dan pembahasan</strong>
+                        <p>
+                            [Tuliskan hasil pengujian, fungsi rangkaian,
+                            kendala yang ditemukan, dan cara mengatasinya.]
+                        </p>
+                    </div>
+
+                    <h4>Dokumentasi praktik</h4>
+
+                    <div class="foto-grid">
+                        <figure>
+                            <img
+                                src="foto/minggu2-rangkaian.jpg"
+                                alt="Foto proses praktik minggu kedua"
+                                loading="lazy"
+                            >
+                            <figcaption>Proses pengerjaan praktik</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="foto/minggu2-hasil.jpg"
+                                alt="Foto hasil praktik minggu kedua"
+                                loading="lazy"
+                            >
+                            <figcaption>Hasil akhir praktik</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- MINGGU 3 -->
+                <article class="week-card">
+                    <div class="week-heading">
+                        <div class="week-number">03</div>
+                        <div>
+                            <h3>[Judul Praktik Minggu 3]</h3>
+                            <p>Pertemuan ketiga</p>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Pada pertemuan ketiga, kegiatan berfokus pada
+                        [materi praktik]. Saya mempelajari cara menyiapkan
+                        perangkat, mengikuti prosedur pengujian, dan
+                        memahami hubungan antara program dengan perangkat
+                        yang dikendalikan.
+                    </p>
+
+                    <h4>Alat dan bahan</h4>
+                    <ul class="detail-praktik">
+                        <li>[Nama mikrokontroler atau modul]</li>
+                        <li>[Nama komponen pendukung]</li>
+                        <li>[Komputer dan perangkat lunak, jika digunakan]</li>
+                    </ul>
+
+                    <h4>Langkah kerja</h4>
+                    <ol class="detail-praktik">
+                        <li>Menyiapkan perangkat dan program yang dibutuhkan.</li>
+                        <li>Menghubungkan komponen sesuai petunjuk.</li>
+                        <li>Menjalankan pengujian dan mencatat hasilnya.</li>
+                    </ol>
+
+                    <div class="hasil-box">
+                        <strong>Hasil dan pembahasan</strong>
+                        <p>
+                            [Jelaskan perilaku perangkat ketika diuji,
+                            apakah sesuai dengan tujuan, dan hal baru
+                            yang kamu pelajari.]
+                        </p>
+                    </div>
+
+                    <h4>Dokumentasi praktik</h4>
+
+                    <div class="foto-grid">
+                        <figure>
+                            <img
+                                src="foto/minggu3-rangkaian.jpg"
+                                alt="Foto proses praktik minggu ketiga"
+                                loading="lazy"
+                            >
+                            <figcaption>Proses pengerjaan praktik</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="foto/minggu3-hasil.jpg"
+                                alt="Foto hasil praktik minggu ketiga"
+                                loading="lazy"
+                            >
+                            <figcaption>Hasil akhir praktik</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- MINGGU 4 -->
+                <article class="week-card">
+                    <div class="week-heading">
+                        <div class="week-number">04</div>
+                        <div>
+                            <h3>[Judul Praktik Minggu 4]</h3>
+                            <p>Pertemuan keempat</p>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Pada pertemuan keempat, saya mempraktikkan
+                        [materi praktik]. Kegiatan ini membantu saya
+                        memahami tahapan perakitan atau pemrograman,
+                        serta pentingnya memeriksa koneksi sebelum
+                        menjalankan perangkat.
+                    </p>
+
+                    <h4>Alat dan bahan</h4>
+                    <ul class="detail-praktik">
+                        <li>[Nama alat atau komponen pertama]</li>
+                        <li>[Nama alat atau komponen kedua]</li>
+                        <li>[Perangkat pendukung]</li>
+                    </ul>
+
+                    <h4>Langkah kerja</h4>
+                    <ol class="detail-praktik">
+                        <li>Mempersiapkan alat dan bahan.</li>
+                        <li>Melakukan perakitan atau pemrograman.</li>
+                        <li>Menguji hasil dan mengevaluasi kinerjanya.</li>
+                    </ol>
+
+                    <div class="hasil-box">
+                        <strong>Hasil dan pembahasan</strong>
+                        <p>
+                            [Tuliskan hasil yang diperoleh, kesesuaian
+                            dengan instruksi, dan kendala selama praktik.]
+                        </p>
+                    </div>
+
+                    <h4>Dokumentasi praktik</h4>
+
+                    <div class="foto-grid">
+                        <figure>
+                            <img
+                                src="foto/minggu4-rangkaian.jpg"
+                                alt="Foto proses praktik minggu keempat"
+                                loading="lazy"
+                            >
+                            <figcaption>Proses pengerjaan praktik</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="foto/minggu4-hasil.jpg"
+                                alt="Foto hasil praktik minggu keempat"
+                                loading="lazy"
+                            >
+                            <figcaption>Hasil akhir praktik</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- MINGGU 5 -->
+                <article class="week-card">
+                    <div class="week-heading">
+                        <div class="week-number">05</div>
+                        <div>
+                            <h3>[Judul Praktik Minggu 5]</h3>
+                            <p>Pertemuan kelima</p>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Pada pertemuan kelima, saya mempelajari
+                        [materi praktik]. Saya melakukan percobaan
+                        untuk mengetahui cara kerja perangkat dan
+                        membandingkan hasil pengujian dengan tujuan
+                        praktik yang telah ditetapkan.
+                    </p>
+
+                    <h4>Alat dan bahan</h4>
+                    <ul class="detail-praktik">
+                        <li>[Nama perangkat utama]</li>
+                        <li>[Komponen pendukung]</li>
+                        <li>[Alat ukur atau perangkat lunak, jika digunakan]</li>
+                    </ul>
+
+                    <h4>Langkah kerja</h4>
+                    <ol class="detail-praktik">
+                        <li>Menyiapkan komponen dan perangkat.</li>
+                        <li>Melaksanakan percobaan sesuai petunjuk.</li>
+                        <li>Mengamati dan mendokumentasikan hasil percobaan.</li>
+                    </ol>
+
+                    <div class="hasil-box">
+                        <strong>Hasil dan pembahasan</strong>
+                        <p>
+                            [Jelaskan hasil percobaan, analisis singkat,
+                            serta kesimpulan dari kegiatan minggu kelima.]
+                        </p>
+                    </div>
+
+                    <h4>Dokumentasi praktik</h4>
+
+                    <div class="foto-grid">
+                        <figure>
+                            <img
+                                src="foto/minggu5-rangkaian.jpg"
+                                alt="Foto proses praktik minggu kelima"
+                                loading="lazy"
+                            >
+                            <figcaption>Proses pengerjaan praktik</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="foto/minggu5-hasil.jpg"
+                                alt="Foto hasil praktik minggu kelima"
+                                loading="lazy"
+                            >
+                            <figcaption>Hasil akhir praktik</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- MINGGU 6 -->
+                <article class="week-card">
+                    <div class="week-heading">
+                        <div class="week-number">06</div>
+                        <div>
+                            <h3>[Judul Praktik Minggu 6]</h3>
+                            <p>Pertemuan keenam</p>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Pada pertemuan keenam, saya melaksanakan praktik
+                        mengenai [materi praktik]. Kegiatan ini menjadi
+                        kesempatan untuk menerapkan pemahaman yang telah
+                        diperoleh dari pertemuan sebelumnya.
+                    </p>
+
+                    <h4>Alat dan bahan</h4>
+                    <ul class="detail-praktik">
+                        <li>[Nama alat atau komponen pertama]</li>
+                        <li>[Nama alat atau komponen kedua]</li>
+                        <li>[Perangkat pendukung]</li>
+                    </ul>
+
+                    <h4>Langkah kerja</h4>
+                    <ol class="detail-praktik">
+                        <li>Menyiapkan seluruh perangkat praktik.</li>
+                        <li>Melakukan perakitan dan pengujian sesuai instruksi.</li>
+                        <li>Mengevaluasi hasil dan membuat dokumentasi akhir.</li>
+                    </ol>
+
+                    <div class="hasil-box">
+                        <strong>Hasil dan pembahasan</strong>
+                        <p>
+                            [Tuliskan hasil akhir, apakah tujuan praktik
+                            tercapai, dan pengetahuan yang diperoleh.]
+                        </p>
+                    </div>
+
+                    <h4>Dokumentasi praktik</h4>
+
+                    <div class="foto-grid">
+                        <figure>
+                            <img
+                                src="foto/minggu6-rangkaian.jpg"
+                                alt="Foto proses praktik minggu keenam"
+                                loading="lazy"
+                            >
+                            <figcaption>Proses pengerjaan praktik</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="foto/minggu6-hasil.jpg"
+                                alt="Foto hasil praktik minggu keenam"
+                                loading="lazy"
+                            >
+                            <figcaption>Hasil akhir praktik</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI FOTO -->
+    <section class="gallery-section" id="galeri">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Galeri <span>Dokumentasi</span></h2>
+                <p>
+                    Kumpulan foto proses dan hasil kegiatan praktikum.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-card">
+                    <img
+                        src="foto/minggu1-hasil.jpg"
+                        alt="Dokumentasi hasil praktik pertama"
+                        loading="lazy"
+                    >
+                    <p>Dokumentasi Minggu 1</p>
+                </div>
+
+                <div class="gallery-card">
+                    <img
+                        src="foto/minggu2-hasil.jpg"
+                        alt="Dokumentasi hasil praktik kedua"
+                        loading="lazy"
+                    >
+                    <p>Dokumentasi Minggu 2</p>
+                </div>
+
+                <div class="gallery-card">
+                    <img
+                        src="foto/minggu3-hasil.jpg"
+                        alt="Dokumentasi hasil praktik ketiga"
+                        loading="lazy"
+                    >
+                    <p>Dokumentasi Minggu 3</p>
+                </div>
+
+                <div class="gallery-card">
+                    <img
+                        src="foto/minggu4-hasil.jpg"
+                        alt="Dokumentasi hasil praktik keempat"
+                        loading="lazy"
+                    >
+                    <p>Dokumentasi Minggu 4</p>
+                </div>
+
+                <div class="gallery-card">
+                    <img
+                        src="foto/minggu5-hasil.jpg"
+                        alt="Dokumentasi hasil praktik kelima"
+                        loading="lazy"
+                    >
+                    <p>Dokumentasi Minggu 5</p>
+                </div>
+
+                <div class="gallery-card">
+                    <img
+                        src="foto/minggu6-hasil.jpg"
+                        alt="Dokumentasi hasil praktik keenam"
+                        loading="lazy"
+                    >
+                    <p>Dokumentasi Minggu 6</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KESIMPULAN -->
+    <section class="conclusion" id="kesimpulan">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Kesimpulan <span>Praktikum</span></h2>
+                <p>Refleksi dari kegiatan pembelajaran.</p>
+            </div>
+
+            <div class="conclusion-card">
+                <div style="font-size: 45px;">🎓</div>
+
+                <h3>Pengalaman Belajar Sistem Mikroprosesor</h3>
+
+                <p>
+                    Melalui kegiatan praktikum Sistem Mikroprosesor,
+                    saya memperoleh pengalaman dalam mengenal komponen,
+                    mengikuti prosedur kerja, melakukan perakitan atau
+                    pemrograman, dan mengamati hasil pengujian.
+                </p>
+
+                <p>
+                    Setiap kegiatan memberikan pemahaman mengenai
+                    hubungan antara teori dan penerapannya. Saya juga
+                    belajar untuk lebih teliti, menyelesaikan masalah,
+                    bekerja secara sistematis, dan mendokumentasikan
+                    hasil kegiatan dengan baik.
+                </p>
+
+                <p>
+                    Portofolio ini disusun sebagai dokumentasi proses
+                    belajar dan hasil praktik yang telah dilakukan.
+                </p>
+
+                <a href="#beranda" class="button" style="margin-top: 20px;">
+                    Kembali ke Atas ↑
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            <strong>Portofolio Sistem Mikroprosesor</strong>
+        </p>
+
+        <p>
+            Dibuat oleh <span>[Nama Lengkap]</span>
+        </p>
+
+        <p>
+            © 2026 — Dokumentasi Kegiatan Praktikum
+        </p>
+    </footer>
+
+</body>
+</html>
